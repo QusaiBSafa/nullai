@@ -1,101 +1,231 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+const categories = [
+  "All",
+  "Chat Tools",
+  "Image Tools",
+  "Video Generators",
+  "Game Generators",
+  "Content Generators",
+  "Free Tools",
+];
+
+const aiTools = [
+  {
+    name: "ChatGPT",
+    categories: ["Chat Tools", "Free Tools"],
+    description: "AI chatbot for conversations and content creation.",
+    url: "https://chat.openai.com",
+  },
+  {
+    name: "Claude AI",
+    categories: ["Chat Tools"],
+    description: "AI assistant with strong reasoning capabilities.",
+    url: "https://claude.ai",
+  },
+  {
+    name: "Bard",
+    categories: ["Chat Tools"],
+    description: "Google’s AI chatbot for creative and research purposes.",
+    url: "https://bard.google.com",
+  },
+
+  {
+    name: "Midjourney",
+    categories: ["Image Tools"],
+    description: "AI-powered image generation from text prompts.",
+    url: "https://www.midjourney.com",
+  },
+  {
+    name: "Stable Diffusion",
+    categories: ["Image Tools", "Free Tools"],
+    description: "Open-source AI for generating images from text.",
+    url: "https://stablediffusionweb.com",
+  },
+  {
+    name: "DALL·E 3",
+    categories: ["Image Tools"],
+    description: "Advanced AI for creative image generation.",
+    url: "https://openai.com/dall-e",
+  },
+
+  {
+    name: "Runway ML",
+    categories: ["Video Generators"],
+    description: "AI-powered video generation and editing tool.",
+    url: "https://runwayml.com",
+  },
+  {
+    name: "Pika Labs",
+    categories: ["Video Generators"],
+    description: "Create AI-generated videos from text prompts.",
+    url: "https://pika.art",
+  },
+  {
+    name: "Synthesia",
+    categories: ["Video Generators"],
+    description: "Generate AI avatars and videos from scripts.",
+    url: "https://www.synthesia.io",
+  },
+
+  {
+    name: "Leonardo AI",
+    categories: ["Game Generators"],
+    description: "AI tool for game asset and character generation.",
+    url: "https://leonardo.ai",
+  },
+  {
+    name: "Scenario.gg",
+    categories: ["Game Generators"],
+    description: "AI-generated assets for game development.",
+    url: "https://scenario.gg",
+  },
+  {
+    name: "Charisma AI",
+    categories: ["Game Generators"],
+    description: "AI-powered interactive storytelling for games.",
+    url: "https://charisma.ai",
+  },
+
+  {
+    name: "Jasper AI",
+    categories: ["Content Generators"],
+    description: "AI copywriting assistant for marketing and blogs.",
+    url: "https://www.jasper.ai",
+  },
+  {
+    name: "Copy.ai",
+    categories: ["Content Generators"],
+    description: "AI writing tool for sales and content creation.",
+    url: "https://www.copy.ai",
+  },
+  {
+    name: "Rytr",
+    categories: ["Content Generators"],
+    description: "AI-powered writing assistant for various content.",
+    url: "https://rytr.me",
+  },
+
+  {
+    name: "DeepSeek",
+    categories: ["Free Tools", "Chat Tools"],
+    description: "AI-powered search engine for research and knowledge.",
+    url: "https://www.deepseek.com",
+  },
+  {
+    name: "Perplexity AI",
+    categories: ["Free Tools"],
+    description: "AI search engine with detailed answers and citations.",
+    url: "https://www.perplexity.ai",
+  },
+  {
+    name: "Hugging Face",
+    categories: ["Free Tools"],
+    description: "Open AI models for NLP, vision, and more.",
+    url: "https://huggingface.co",
+  },
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  // Filter AI tools based on search and selected category
+  const filteredTools = aiTools.filter(
+    (tool) =>
+      (selectedCategory === "All" ||
+        tool.categories.includes(selectedCategory)) &&
+      tool.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <main className="min-h-screen bg-gray-100 text-gray-900 p-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col items-center justify-center min-h-min bg-gray-50">
+          {/* Animated Title */}
+          <motion.h1
+            className="text-5xl font-extrabold text-gray-900 mt-10 tracking-wide"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Null<span className="text-blue-600">AI</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            className="text-lg text-gray-600 mt-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
           >
-            Read our docs
-          </a>
+            Discover the Best AI Tools in One Place
+          </motion.p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        {/* Search Input */}
+        <div className="mt-4">
+          <Input
+            type="text"
+            placeholder="Search AI Tools..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+
+        {/* Category Buttons */}
+        <div className="flex flex-wrap gap-3 justify-center mt-4">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-md transition ${
+                selectedCategory === category
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-300 text-gray-700 hover:bg-gray-400"
+              }`}
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        {/* AI Tools Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+          {filteredTools.length > 0 ? (
+            filteredTools.map((tool, index) => (
+              <Card
+                key={index}
+                className="hover:shadow-lg transition cursor-pointer"
+                onClick={() => window.open(tool.url, "_blank")}
+              >
+                <CardContent>
+                  <h2 className="text-xl font-semibold mt-4">{tool.name}</h2>
+                  <p className="text-gray-600 text-sm">{tool.description}</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {tool.categories.map((cat, i) => (
+                      <span
+                        key={i}
+                        className="text-xs bg-gray-200 px-2 py-1 rounded-md"
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <p className="text-center col-span-full">No AI tools found.</p>
+          )}
+        </div>
+      </div>
+    </main>
   );
 }
