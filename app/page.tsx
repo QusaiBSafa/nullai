@@ -37,6 +37,13 @@ const categories = [
 
 const aiTools = [
   {
+    name: "DeepSeek",
+    categories: ["Search & Research", "AI Assistants"],
+    url: "https://www.deepseek.com",
+    description:
+      "AI-powered search engine for research and knowledge, providing detailed answers and insights.",
+  },
+  {
     name: "Anyword",
     categories: ["Business & Marketing", "Content Generators"],
     url: "https://www.anyword.com",
