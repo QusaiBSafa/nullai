@@ -50,13 +50,6 @@ const aiTools = [
     description: "AI-powered predictive analytics for marketing copy.",
   },
   {
-    name: "AskNow",
-    categories: ["Chat Tools"],
-    url: "https://www.asknow.ai",
-    description:
-      "Ask popular people anything and the AI will generate a response in their style.",
-  },
-  {
     name: "AudioStrip",
     categories: ["Music & Audio"],
     url: "https://www.audiostrip.co.uk",
@@ -67,12 +60,6 @@ const aiTools = [
     categories: ["Search & Research", "Productivity"],
     url: "https://www.bearly.ai",
     description: "Summarize research papers, PDFs, articles, and more.",
-  },
-  {
-    name: "BeatBot",
-    categories: ["Music & Audio"],
-    url: "https://www.beatbot.fm",
-    description: "AI song maker.",
   },
   {
     name: "Beatoven.ai",
@@ -106,12 +93,6 @@ const aiTools = [
     description: "AI-powered digital chef for meal ideas.",
   },
   {
-    name: "Cleanup.pictures",
-    categories: ["Image Tools"],
-    url: "https://www.cleanup.pictures",
-    description: "Remove unwanted objects, defects, or text from pictures.",
-  },
-  {
     name: "Cleanvoice",
     categories: ["Voice & Audio"],
     url: "https://www.cleanvoice.ai",
@@ -123,12 +104,6 @@ const aiTools = [
     categories: ["Image Tools"],
     url: "https://www.clipdrop.co/remove-background",
     description: "Remove background from images in one click.",
-  },
-  {
-    name: "CommentReply",
-    categories: ["Social Media"],
-    url: "https://www.commentreply.ai",
-    description: "Generate thousands of YouTube comments in seconds.",
   },
   {
     name: "Copy.ai",
@@ -167,28 +142,10 @@ const aiTools = [
     description: "Summarize YouTube videos with a link.",
   },
   {
-    name: "ElevenLabs",
-    categories: ["Voice & Audio"],
-    url: "https://www.beta.elevenlabs.io",
-    description: "Realistic and versatile AI speech software.",
-  },
-  {
-    name: "Ellie",
-    categories: ["AI Assistants", "Productivity"],
-    url: "https://www.tryellie.com",
-    description: "AI email assistant that learns your writing style.",
-  },
-  {
     name: "Endel",
     categories: ["Music & Audio"],
     url: "https://www.endel.io",
     description: "Personalized soundscapes for focus, relaxation, and sleep.",
-  },
-  {
-    name: "Fabrie",
-    categories: ["Design & Creativity"],
-    url: "https://www.fabrie.notion.site",
-    description: "Create stunning renderings from sketches.",
   },
   {
     name: "Fliki",
@@ -196,12 +153,6 @@ const aiTools = [
     url: "https://www.fliki.ai",
     description:
       "Create videos from scripts or blog posts using realistic voices.",
-  },
-  {
-    name: "Gallieo AI",
-    categories: ["Design & Creativity"],
-    url: "https://www.usegallieo.ai",
-    description: "Create designs and UIs 10x faster with text descriptions.",
   },
   {
     name: "GhostWryter",
@@ -222,13 +173,6 @@ const aiTools = [
     description: "Search across company apps to find what you need.",
   },
   {
-    name: "HireYaY",
-    categories: ["Business & Marketing"],
-    url: "https://www.hireyay.com",
-    description:
-      "Create engaging job ads with AI and distribute to job seekers.",
-  },
-  {
     name: "HiveMind AI",
     categories: ["Business & Marketing"],
     url: "https://www.hivemindai.com",
@@ -239,13 +183,6 @@ const aiTools = [
     categories: ["Design & Creativity"],
     url: "https://www.figma.com",
     description: "Convert websites into fully editable Figma designs.",
-  },
-  {
-    name: "Igniter.ai",
-    categories: ["AI Assistants"],
-    url: "https://www.igniter.ai",
-    description:
-      "Find the right AI tools and resources to get the job done faster.",
   },
   {
     name: "Illustroke",
@@ -276,12 +213,6 @@ const aiTools = [
     categories: ["Voice & Audio", "Meeting & Collaboration"],
     url: "https://www.krisp.ai",
     description: "Remove background noise from calls.",
-  },
-  {
-    name: "LeiaPix",
-    categories: ["Image Tools", "AI Art"],
-    url: "https://www.convert.leiapix.com",
-    description: "Convert 2D images into 3D Lightfield images.",
   },
   {
     name: "Looka",
@@ -347,8 +278,8 @@ const aiTools = [
   {
     name: "Prodigy",
     categories: ["Coding & Development"],
-    url: "https://www.ai.prodi.gg",
-    description: "AI tools for software engineers to build better careers.",
+    url: "https://prodi.gy/",
+    description: "Build AI systems that do exactly what you want.",
   },
   {
     name: "Profile Pic Maker",
@@ -377,7 +308,7 @@ const aiTools = [
   {
     name: "Reface AI",
     categories: ["Video Generators", "AI Art"],
-    url: "https://www.hey.reface.ai",
+    url: "https://reface.ai/",
     description: "Create videos with your face swapped and animated.",
   },
   {
@@ -491,7 +422,7 @@ const aiTools = [
   {
     name: "Supermeme",
     categories: ["Social Media", "AI Art"],
-    url: "https://www.app.supermeme.ai",
+    url: "https://supermeme.ai/",
     description: "Turn text into memes using AI.",
   },
   {
@@ -507,12 +438,6 @@ const aiTools = [
     description: "Create videos from plain text in minutes.",
   },
   {
-    name: "SwagAI",
-    categories: ["Business & Marketing"],
-    url: "https://www.swag-ai.com",
-    description: "Generate ideas for company swag and promotional merchandise.",
-  },
-  {
     name: "Tavus",
     categories: ["Video Generators"],
     url: "https://www.tavus.io",
@@ -521,19 +446,19 @@ const aiTools = [
   {
     name: "Timely AI",
     categories: ["Productivity"],
-    url: "https://www.timelyai.com",
-    description: "Next-gen OS for time-based businesses.",
+    url: "https://www.timely.com/",
+    description: "Unlock business insights with 100% accurate time data.",
   },
   {
     name: "Tome",
     categories: ["AI Assistants"],
-    url: "https://www.beta.tome.app",
+    url: "https://www.tome.app",
     description: "AI storytelling partner for presentations.",
   },
   {
     name: "Tribescaler",
     categories: ["Social Media"],
-    url: "https://www.tribescaler.com",
+    url: "https://tribescaler.com/",
     description: "Generate irresistible Twitter hooks with AI.",
   },
   {
@@ -553,12 +478,6 @@ const aiTools = [
     categories: ["Design & Creativity"],
     url: "https://www.uizard.io",
     description: "Design web apps, wireframes, and prototypes in minutes.",
-  },
-  {
-    name: "Vana Portrait",
-    categories: ["AI Art"],
-    url: "https://www.portrait.vana.com",
-    description: "Create self-portraits in infinite styles with AI.",
   },
   {
     name: "Vidyo",
@@ -611,13 +530,7 @@ const aiTools = [
   {
     name: "Write Me a Cover Letter",
     categories: ["Resume & Career"],
-    url: "https://www.writemeacoverletter.com",
-    description: "Create a cover letter in seconds using AI.",
-  },
-  {
-    name: "Write Me a Cover Letter",
-    categories: ["Resume & Career"],
-    url: "https://www.writemeacoverletter.com",
+    url: "https://www.success.ai/ai-tools/writemeacoverletter",
     description: "Create a cover letter in seconds using AI.",
   },
   {
